@@ -17,3 +17,29 @@ list.addEventListener('click', function(e){
         list.removeChild(li);
     }
 });
+
+
+//Add Books Event
+const addForm = document.forms['add-book'];
+addForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const value = addForm.querySelector('input[type="text"]').value;
+
+    //Create Elements
+    const li = document.createElement('li');
+    const bookName = document.createElement('span');
+    const deleteBtn = document.createElement('span');
+
+    //Add Content to Elements
+    deleteBtn.textContent = 'delete';
+    bookName.textContent = value;
+
+    //Add Respective Class To Elements Created
+    deleteBtn.classList.add('delete');
+    bookName.classList.add('name');
+
+    //Append Child to DOM
+    li.appendChild(bookName);
+    li.appendChild(deleteBtn);
+    list.appendChild(li);
+});
